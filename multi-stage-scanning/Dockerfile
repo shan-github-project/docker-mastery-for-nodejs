@@ -1,6 +1,6 @@
 ## Stage 1 (production base)
 # This gets our prod dependencies installed and out of the way
-FROM node:10-alpine as base
+FROM node:19-alpine as base
 
 EXPOSE 3000
 
