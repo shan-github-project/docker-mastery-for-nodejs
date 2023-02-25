@@ -1,4 +1,4 @@
-FROM node:10
+FROM node:19-alpine
 
 # set this with shell variables at build-time.
 # If they aren't set, then not-set will be default.
