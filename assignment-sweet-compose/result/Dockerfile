@@ -8,7 +8,7 @@ EXPOSE 80
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
     # use 'apt-cache policy <package-name>' to get installed versions
-    curl=7.64.0-4+deb10u3 \
+    curl=7.68.0-1ubuntu2.15 \
     tini=0.18.0-1 \
     && rm -rf /var/lib/apt/lists/*
 

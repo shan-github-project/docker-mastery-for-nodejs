@@ -6,7 +6,7 @@ ARG CREATED_DATE=not-set
 ARG SOURCE_COMMIT=not-set
 
 # labels from https://github.com/opencontainers/image-spec/blob/master/annotations.md
-LABEL org.opencontainers.image.authors=bret@bretfisher.com
+LABEL org.opencontainers.image.authors=shan-github@gmail.com
 LABEL org.opencontainers.image.created=$CREATED_DATE
 LABEL org.opencontainers.image.revision=$SOURCE_COMMIT
 LABEL org.opencontainers.image.title="Sample Node.js Dockerfile with LABELS"
