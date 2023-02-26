@@ -43,7 +43,7 @@ FROM dev as test
 RUN npm audit
 # --audit-level critical
 ENV TRIVY_VERSION=0.35.0
-# Use BuildKit to help translate architecture names
+#Use BuildKit to help translate architecture names
 ARG TARGETPLATFORM
 USER root
 RUN case ${TARGETPLATFORM} in \
@@ -56,6 +56,9 @@ RUN case ${TARGETPLATFORM} in \
     && apt-get -qq install -y ca-certificates wget --no-install-recommends \
     && wget --progress=dot:giga https://github.com/aquasecurity/trivy/releases/download/v${TRIVY_VERSION}/trivy_${TRIVY_VERSION}_Linux-${ARCH}.deb \
     && dpkg -i trivy_${TRIVY_VERSION}_Linux-${ARCH}.deb
+#IF above SECURITY CONFIG DIDN'T RUN RUN THIS 2 COMMENTED COMMAND     
+# RUN curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sh -s -- -b /usr/local/bin \ 
+#   && trivy filesystem --exit-code 0 --no-progress /
 COPY . .
 RUN trivy fs --severity "HIGH,CRITICAL" --no-progress --security-checks vuln .
 
